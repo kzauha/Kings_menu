@@ -1,0 +1,368 @@
+/* ========================================
+   GENERAL STYLES
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* ========================================
+   NAVBAR STYLES
+   ======================================== */
+
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 70px;
+}
+
+/* ========================================
+   LOGO STYLES
+   ======================================== */
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* ========================================
+   NAVIGATION MENU STYLES
+   ======================================== */
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    margin-left: 60px;
+    flex: 1;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 400;
+    padding-bottom: 8px;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+    border-bottom: 2px solid #333;
+}
+
+.nav-item.active .nav-link {
+    border-bottom: 2px solid #333;
+}
+
+/* ========================================
+   DROPDOWN MENU STYLES
+   ======================================== */
+
+.nav-item-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    list-style: none;
+    min-width: 150px;
+    margin-top: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    padding: 10px 0;
+    z-index: 1001;
+}
+
+.nav-item-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f5f5f5;
+    color: #000;
+}
+
+/* ========================================
+   CONTACT BUTTON STYLES
+   ======================================== */
+
+.nav-button {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.nav-button:hover {
+    background-color: #222222;
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   HAMBURGER MENU (MOBILE)
+   ======================================== */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Active hamburger state */
+.hamburger.active span:nth-child(1) {
+    /* No transformation - keep as is */
+}
+
+.hamburger.active span:nth-child(2) {
+    /* No transformation - keep as is */
+}
+
+.hamburger.active span:nth-child(3) {
+    /* No transformation - keep as is */
+}
+
+/* ========================================
+   MOBILE PRIMARY MENU (HIDDEN BY DEFAULT)
+   ======================================== */
+
+.mobile-primary-menu {
+    background-color: #f5f1ed;
+    padding: 20px;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    overflow-y: auto;
+    z-index: 998;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-primary-menu.active {
+    transform: translateX(0);
+}
+
+.mobile-nav-item {
+    position: relative;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.mobile-nav-link {
+    display: block;
+    color: #4a7c7e;
+    text-decoration: none;
+    padding: 16px 0 16px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+    color: #2f5557;
+}
+
+.dropdown-arrow {
+    position: absolute;
+    right: 0;
+    top: 16px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4a7c7e;
+    font-size: 18px;
+    font-weight: 900;
+    transition: transform 0.3s ease;
+    user-select: none;
+    pointer-events: none;
+}
+
+.mobile-nav-item.open .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.mobile-dropdown-menu {
+    list-style: none;
+    display: none;
+    background-color: #f0ebe7;
+    margin: 0;
+    padding: 10px 0 10px 20px;
+    list-style-type: none;
+}
+
+.mobile-dropdown-menu li {
+    list-style: none;
+    list-style-type: none;
+}
+
+.mobile-dropdown-menu.active {
+    display: block;
+}
+
+.mobile-dropdown-menu li a {
+    display: block;
+    color: #4a7c7e;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.mobile-dropdown-menu li a:hover {
+    color: #2f5557;
+}
+
+.mobile-nav-button {
+    display: block;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.mobile-nav-button:hover {
+    background-color: #222222;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media screen and (max-width: 768px) {
+    .navbar-container {
+        height: 60px;
+        padding: 0 15px;
+    }
+
+    .navbar-logo img {
+        height: 40px;
+    }
+
+    .nav-menu,
+    .nav-button {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .mobile-primary-menu {
+        top: 60px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar-container {
+        height: 50px;
+        padding: 0 10px;
+    }
+
+    .navbar-logo img {
+        height: 35px;
+    }
+
+    .mobile-nav-link {
+        font-size: 15px;
+        padding: 14px 0;
+    }
+
+    .dropdown-arrow {
+        font-size: 10px;
+    }
+
+    .mobile-nav-button {
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    .mobile-primary-menu {
+        top: 50px;
+    }
+}
